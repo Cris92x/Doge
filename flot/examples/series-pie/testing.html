@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Flot Examples: Pie Charts</title>
+<style type="text/css">
+body { font-family: Verdana, Arial, sans-serif; font-size: 12px; }
+
+
+#placeholder { width: 350px; height: 150px; 
+</style>
+
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="../../excanvas.min.js"></script><![endif]-->
+	<script language="javascript" type="text/javascript" src="../../jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="../../jquery.flot.js"></script>
+	<script language="javascript" type="text/javascript" src="../../jquery.flot.pie.js"></script>
+	<script type="text/javascript">
+
+var data = [
+    { label: "IE",  data: 19.5, color: "#4572A7"},
+    { label: "Safari",  data: 4.5, color: "#80699B"},
+    { label: "Firefox",  data: 36.6, color: "#AA4643"},
+    { label: "Opera",  data: 2.3, color: "#3D96AE"},
+    { label: "Chrome",  data: 36.3, color: "#89A54E"},
+    { label: "Other",  data: 0.8, color: "#3D96AE"}
+];
+ 
+		$(document).ready(function() {
+
+			
+			$.plot($('#placeholder'), data, {
+				series: {
+					pie: { 
+						show: true
+					}
+				},
+				grid: {
+					hoverable: true,
+					clickable: true
+				}
+			});
+
+			setCode([
+				"$.plot('#placeholder', data, {",
+				"    series: {",
+				"        pie: {",
+				"            show: true",
+				"        }",
+				"    },",
+				"    grid: {",
+				"        hoverable: true,",
+				"        clickable: true",
+				"    }",
+				"});"
+			]);
+
+			placeholder.bind("plothover", function(event, pos, obj) {
+
+				if (!obj) {
+					return;
+				}
+
+				var percent = parseFloat(obj.series.percent).toFixed(2);
+				$("#hover").html("<span style='font-weight:bold; color:" + obj.series.color + "'>" + obj.series.label + " (" + percent + "%)</span>");
+			});
+
+			placeholder.bind("plotclick", function(event, pos, obj) {
+
+				if (!obj) {
+					return;
+				}
+
+				percent = parseFloat(obj.series.percent).toFixed(2);
+				alert(""  + obj.series.label + ": " + percent + "%");
+			});
+		});
+</script>
+</head>
+<body>
+
+<div id="placeholder"></div>
+
+
+
+</body>
+</html>
