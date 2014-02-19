@@ -4,84 +4,44 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mobile app</title>
+    <title>EssentialDogCare</title>
 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
     <!-- Bootstrap -->
-    <link href="C:\Users\Jeannie\Desktop\MobileApp\css\bootstrap.css" rel="stylesheet">
-	<script language="javascript" type="text/javascript" src="C:\Users\Jeannie\Desktop\MobileApp\js\jquery.js"></script>
-	<script language="javascript" type="text/javascript" src="C:\Users\Jeannie\Desktop\MobileApp\js\jquery.flot.js"></script>
-	<script language="javascript" type="text/javascript" src="C:\Users\Jeannie\Desktop\MobileApp\js\jquery.flot.pie.js"></script>
+    <link href="css\bootstrap.css" rel="stylesheet">
+	<script language="javascript" type="text/javascript" src="js\jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="js\jquery.flot.js"></script>
+	<script language="javascript" type="text/javascript" src="js\jquery.flot.pie.js"></script>
+	<link href="css\main.css" rel="stylesheet">
 	<script type="text/javascript">
-	  $(function() {
 
-		var data = [],
-			series = 4;
+var data = [
+    { data: 40, color: "#4572A7"},
+    { data: 20, color: "#80699B"},
+    { data: 30, color: "#AA4643"},
+    { data: 10, color: "#3D96AE"}
+];
 
-		for (var i = 0; i < series; i++) {
-			data[i] = {
-				label: "Series" + (i + 1),
-				data: 8
-			}
-		}
-		var placeholder = $("#placeholder");
+$("#placholder").ready(function() {
+var placeholder = $("#placeholder");
+$.plot(placeholder, data, {
+    series: {
+        pie: {
+            show: true
+        }
+    },
+    grid: {
+        hoverable: true,
+        clickable: true
+    }
+});
 
-		$("#example-1").click(function() {
 
-			placeholder.unbind();
 
-			$.plot(placeholder, data, {
-				series: {
-					pie: { 
-						show: true
-					}
-				},
-				grid: {
-					hoverable: true,
-					clickable: true
-				}
-			});
-
-			setCode([
-				"$.plot('#placeholder', data, {",
-				"    series: {",
-				"        pie: {",
-				"            show: true",
-				"        }",
-				"    },",
-				"    grid: {",
-				"        hoverable: true,",
-				"        clickable: true",
-				"    }",
-				"});"
-			]);
-
-			placeholder.bind("plothover", function(event, pos, obj) {
-
-				if (!obj) {
-					return;
-				}
-
-				var percent = parseFloat(obj.series.percent).toFixed(2);
-				$("#hover").html("<span style='font-weight:bold; color:" + obj.series.color + "'>" + obj.series.label + " (" + percent + "%)</span>");
-			});
-
-			placeholder.bind("plotclick", function(event, pos, obj) {
-
-				if (!obj) {
-					return;
-				}
-				alert(""  + obj.series.label + ": " + percent + "%");
-			});
-		});
-		
-		
-		
-		
-		
-		$("#example-12").click(function() {
-	
-
-			placeholder.bind("plothover", function(event, pos, obj) {
+placeholder.bind("plothover", function(event, pos, obj) {
 
 				if (!obj) {
 					return;
@@ -100,80 +60,71 @@
 				percent = parseFloat(obj.series.percent).toFixed(2);
 				alert(""  + obj.series.label + ": " + percent + "%");
 			});
-		});
 
-		// Show the initial default chart
-
-		$("#example-1").click();
-
-		// Add the Flot version string to the footer
-
-		$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
-	});
-
-	// A custom label formatter used by several of the plots
-
-	function labelFormatter(label, series) {
-		return "<div style='font-size:8pt; text-align:center; padding:2px; color:white;'>" + label + "<br/>" + Math.round(series.percent) + "%</div>";
-	}
-
-	//
-
-	function setCode(lines) {
-		$("#code").text(lines.join("\n"));
-	}
-	</script>
+});
+</script>
   </head>
   
   <body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
 
+			<a class="navbar-brand" href="#"><b>EssentialDogCare</b></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<h1>Nutrition</h1>
+
+	
+	
+	
+	<div class="placeholder"></div>
+
+	
+</div>
+
+ 
+ 
+ 
+ <nav class="navbar navbar navbar-fixed-bottom" role="navigation">
   <div class="container">
-
-	<h1 class="text-muted">Nutrition</h1>
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-    
-	<div class="btn-group btn-group-justified">
+    <div class="btn-group btn-group-justified">
 		<div class="btn-group">
-			<button type="button" class="btn btn-default"> 
+			<a type="button" class="btn btn-default" href="nutrition.html"> 
 				<span class = "glyphicon glyphicon-heart"></span>
-			</button>
+			</a>
 		</div>
 		<div class="btn-group">
-			<button type="button" class="btn btn-default">
+			<a type="button" class="btn btn-default" href="hazard.html">
 			<span class = "glyphicon glyphicon-exclamation-sign"></span>
-			</button>
+			</a>
 		</div>
 		<div class="btn-group">
-			<button type="button" class="btn btn-default">
+			<a type="button" class="btn btn-default" href="index.html">
+			<span class = "glyphicon glyphicon-home"></span>
+			</a>
+		</div>
+		<div class="btn-group">
+			<a type="button" class="btn btn-default" href="recall.html">
 			<span class = "glyphicon glyphicon-warning-sign"></span>
-			</button>
+			</a>
 		</div>
 		<div class="btn-group">
-			<button type="button" class="btn btn-default">
+			<a type="button" class="btn btn-default" href="setting.html">
 			<span class = "glyphicon glyphicon-cog"></span>
-			</button>
+			</a>
 		</div>
 	</div>
-	</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+  </div>
+</nav>
+
   </body>
   
 </html>
