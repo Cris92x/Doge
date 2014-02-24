@@ -6,63 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>EssentialDogCare</title>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
     <!-- Bootstrap -->
     <link href="css\bootstrap.css" rel="stylesheet">
-	<script language="javascript" type="text/javascript" src="js\jquery.js"></script>
-	<script language="javascript" type="text/javascript" src="js\jquery.flot.js"></script>
-	<script language="javascript" type="text/javascript" src="js\jquery.flot.pie.js"></script>
 	<link href="css\main.css" rel="stylesheet">
-	<script type="text/javascript">
-
-var data = [
-    { data: 40, color: "#4572A7"},
-    { data: 20, color: "#80699B"},
-    { data: 30, color: "#AA4643"},
-    { data: 10, color: "#3D96AE"}
-];
-
-$("#placholder").ready(function() {
-var placeholder = $("#placeholder");
-$.plot(placeholder, data, {
-    series: {
-        pie: {
-            show: true
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: false
+        },
+    
+	series: [{
+    type: 'pie',
+    name: 'overall',
+    point: {
+        events: {
+            click: function(e) {
+                location.href = e.point.url;
+                e.preventDefault();
+            }
         }
     },
-    grid: {
-        hoverable: true,
-        clickable: true
-    }
+    data: [
+        {name: 'Protien', color: '#FFA850' , y: 25, url: 'nutr-protein.html'},
+        {name: 'Vitamins', color: '#FF2929', y: 25, url: 'nutr-vit.html'},
+        {name: 'Fats and Oils', color: '#31FF4F', y: 25, url: 'nutr-fat.html'},
+		{name: 'Minerals', color: '#31FF4F', y: 25, url: 'nutr-mineral.html'}
+    ]
+}]
+    });
 });
+    
 
-
-
-placeholder.bind("plothover", function(event, pos, obj) {
-
-				if (!obj) {
-					return;
-				}
-
-				var percent = parseFloat(obj.series.percent).toFixed(2);
-				$("#hover").html("<span style='font-weight:bold; color:" + obj.series.color + "'>" + obj.series.label + " (" + percent + "%)</span>");
-			});
-
-			placeholder.bind("plotclick", function(event, pos, obj) {
-
-				if (!obj) {
-					return;
-				}
-
-				percent = parseFloat(obj.series.percent).toFixed(2);
-				alert(""  + obj.series.label + ": " + percent + "%");
-			});
-
-});
-</script>
+		</script>
   </head>
   
   <body>
@@ -82,13 +64,10 @@ placeholder.bind("plothover", function(event, pos, obj) {
 
 	<h1>Nutrition</h1>
 
-	
-	
-	
-	<div class="placeholder"></div>
+<div id="container" ></div>
 
 	
-</div>
+
 
  
  
@@ -124,6 +103,12 @@ placeholder.bind("plothover", function(event, pos, obj) {
 	</div>
   </div>
 </nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/highcharts.js"></script>
 
   </body>
   
