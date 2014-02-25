@@ -401,6 +401,7 @@ h6,
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
+  text-align:center;
 }
 
 h1 small,
@@ -2302,9 +2303,11 @@ fieldset[disabled] .btn {
 }
 
 .btn-default {
-  color: #333333;
-  background-color: #ffffff;
-  border-color: #cccccc;
+  color: white;
+  background-color: #3498db;
+  border-color: #3498db;
+  border-right-color: white;
+  border-width:2px;
 }
 
 .btn-default:hover,
@@ -4491,6 +4494,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
+  
 }
 
 .navbar-brand:hover,
