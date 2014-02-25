@@ -21,7 +21,15 @@ $(function () {
         title: {
             text: false
         },
-    
+     plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                }
+            },
 	series: [{
     type: 'pie',
     name: 'overall',
@@ -34,10 +42,10 @@ $(function () {
         }
     },
     data: [
-        {name: 'Protien', color: '#FFA850' , y: 25, url: 'nutr-protein.html'},
-        {name: 'Vitamins', color: '#FF2929', y: 25, url: 'nutr-vit.html'},
-        {name: 'Fats and Oils', color: '#31FF4F', y: 25, url: 'nutr-fat.html'},
-		{name: 'Minerals', color: '#31FF4F', y: 25, url: 'nutr-mineral.html'}
+        {name:'Protein', color: '#FFA850' , y: 25, url: 'nutr-protein.html'},
+        {name:'Carbs', color: '#FF2929', y: 50, url: 'nutr-carb.html'},
+        {name:'Fats and Oils', color: '#31FF4F', y: 10, url: 'nutr-fat.html'},
+		{name:'Vitamins and Minerals', color: '#31FF4F', y: 15, url: 'nutr-vit.html'}
     ]
 }]
     });
@@ -53,7 +61,7 @@ $(function () {
       <div class="container">
         <div class="navbar-header">
 
-			<a class="navbar-brand" href="#"><b>EssentialDogCare</b></a>
+			<a class="navbar-brand" href="index.html"><b>EssentialDogCare</b></a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">

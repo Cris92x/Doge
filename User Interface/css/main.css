@@ -29,7 +29,7 @@ height: 150px;
 }
 
 #container{
-	min-width: 250px; 
+	min-width: 100px; 
 	height: 250px; 
 	margin: 0 auto; 
 	opacity: .4;
