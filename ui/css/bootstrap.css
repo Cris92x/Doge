@@ -789,6 +789,13 @@ pre code {
   margin-left: auto;
 }
 
+.container-bottom {
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 .container:before,
 .container:after {
   display: table;
