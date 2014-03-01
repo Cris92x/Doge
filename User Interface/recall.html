@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <script language="javascript">
+  var dogDatabase = 'https://docs.google.com/spreadsheet/ccc?key=0AqpcFiQ9m1hwdHZsdUVObHg4Um9nazd1a3lpcjIzaXc#gid=0';
+  $('#DogFoodRecalls').sheetrock({
+  url: mySpreadsheet
+});
+  </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,9 +32,8 @@
     </div>
   <div class="container">
 	<h1 >Recall Products</h1><br>
-<iframe src="https://docs.google.com/spreadsheet/pub?key=0AiUns-j7zEF1dE9vTGNJUkJGM0FkN3VXaFdMVTdWZlE&output=html"> </iframe>
 
-
+<table id="DogFoodRecalls" class="table table-condensed table-striped"></table>
   </div>
 	
 	
@@ -65,8 +70,9 @@
 </nav>
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.sheetrock.js"></script>
   </body>
 </html>
