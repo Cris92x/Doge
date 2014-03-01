@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EssentialDogCare</title>
+
+    <!-- Bootstrap -->
+    <link href="css\bootstrap.css" rel="stylesheet">
+	<link href="css\main.css" rel="stylesheet">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: false
+        },
+     plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                }
+            },
+	series: [{
+    type: 'pie',
+    name: 'overall',
+    point: {
+        events: {
+            click: function(e) {
+                location.href = e.point.url;
+                e.preventDefault();
+            }
+        }
+    },
+    data: [
+        {name:'Protein', color: '#FFA850' , y: 25, url: 'nutr-protein.html'},
+        {name:'Carbs', color: '#FF2929', y: 50, url: 'nutr-carb.html'},
+        {name:'Fats and Oils', color: '#31FF4F', y: 10, url: 'nutr-fat.html'},
+		{name:'Vitamins and Minerals', color: '#31FF4F', y: 15, url: 'nutr-vit.html'}
+    ]
+}]
+    });
+});
+    
+
+		</script>
+  </head>
+  
+  <body>
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+
+			<a class="navbar-brand" href="index.html"><b>EssentialDogCare</b></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<h1>Nutrition</h1>
+
+<div id="container" ></div>
+
+	
+
+
+ 
+ 
+ 
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+  <div class="container">
+    <div class="btn-group btn-group-justified">
+		<div class="btn-group">
+			<a type="button" class="btn btn-default" href="nutrition.html"> 
+				<img src="img/nutr-icon.png"/>
+			</a>
+		</div>
+		<div class="btn-group">
+			<a type="button" class="btn btn-default" href="hazard.html" >
+			<img src="img/hazard-icon.png"/>
+			</a>
+		</div>
+		<div class="btn-group">
+			<a type="button" class="btn btn-default" href="index.html">
+			<img src="img/home-icon.png"/>
+			</a>
+		</div>
+		<div class="btn-group">
+			<a type="button" class="btn btn-default" href="recall.html">
+			<img src="img/recall-icon.png"/>
+			</a>
+		</div>
+		<div class="btn-group">
+			<a type="button" class="btn btn-default" href="setting.html" style="border-right-color:#3498db">
+			<img src="img/setting-icon.png"/>
+			</a>
+		</div>
+	</div>
+  </div>
+</nav>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	<script src="js/highcharts.js"></script>
+
+  </body>
+  
+</html>
