@@ -10,7 +10,9 @@ body {
 	padding-top: 70px;
 }
 
-
+b{
+color: #B0E0E6;
+}
 .navbar-default {
 	background-color: #3498db;
 	border-color: transparent;
