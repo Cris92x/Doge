@@ -6,15 +6,13 @@ body {
     font-weight: 300;
     font-size: 16px;
     color: #555;
-background-image:url('img\background.png') no-repeat center center fixed;
+background-color:transparent;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
 	padding-top: 50px;
 }
 
-b{
-color: #B0E0E6;
-}
+
 .navbar-default {
 	background-color: #3498db;
 	border-color: transparent;
